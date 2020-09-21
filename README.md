@@ -14,7 +14,7 @@
 
 ### Notes:
 
-It's a simple application to save important notes. This project is made using Java Script,HTML,CSS. Used Local storage to store data. Design is Responsive.
+It's a simple web application to save important notes. This project is made using Java Script,HTML,CSS. Used Local storage to store data. Design is Responsive.
 
 ### Output
 

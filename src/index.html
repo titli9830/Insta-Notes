@@ -1,0 +1,371 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.css">
+    <title>Insta Note</title>
+    <style>
+        /* .NotesMain{
+              padding: 50px;
+          } */
+        body {
+            /* background:linear-gradient(to right, rgb(250, 216, 22),rgb(243, 40, 141)); */
+            background-image: url("C:/Users/Tithi/Documents/Frontend projects/project5.1/images/images5.jpg");
+            background-color: #cccccc;
+            /* height: 500px; */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+
+            /* filter: blur(8px);
+            -webkit-filter: blur(8px); */
+        }
+
+        .Notes {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .Note {
+            background-color: rgba(10, 10, 10, 0.8);
+            padding: 5px;
+            border-radius: 8px;
+            width: 260px;
+            height: 235px;
+            border: 2px solid black;
+            margin: 10px;
+            transition: 0.6s;
+
+        }
+
+
+        .Note:hover {
+            /* width: 300px;
+            height: 285px; */
+            cursor: pointer;
+            /* border-radius: 8px; */
+            font-size: 40px;
+        }
+
+
+        .Note-Title,
+        .Note-Description {
+            background-color: rgba(114, 72, 123, 0.9);
+
+        }
+
+        .Note-Title {
+            height: 50px;
+            font-size: 25px;
+            padding: 10px 15px 15px;
+            margin: 5px;
+            /* border: 2px solid black; */
+            border-radius: 8px;
+            flex-wrap: wrap;
+            transition: 0.6s;
+            max-height: 30px;
+            font-family: monospace;
+
+        }
+
+        .Note-Title:hover {
+            /* border: 2px solid wheat; */
+            outline: none;
+        }
+
+        .Note-Description {
+            font-size: 20px;
+            font-family: monospace;
+            padding: 10px 15px 15px;
+            margin: 5px;
+            height: 95px;
+            border-radius: 8px;
+            /* text-overflow: ellipsis;*/
+            overflow: auto;
+            word-wrap: break-word;
+            transition: 0.6s;
+
+        }
+
+        .Note-Description:hover {
+            /* border: 2px solid wheat; */
+            outline: none;
+        }
+
+        .btnDeleteNote {
+            border-radius: 6px;
+            background-color: transparent;
+            color: rgba(212, 211, 209, 0.7);
+            transition: 0.6s;
+            margin-right: 120px;
+            border: none;
+            font-family: monospace;
+            /* display: flex;    */
+        }
+
+
+        .btnDeleteNote:hover,
+        .btnDeleteNote:focus {
+            background-color: rgb(194, 192, 190, 0.4);
+            color: rgb(14, 13, 13);
+            cursor: pointer;
+            outline: none;
+        }
+
+        .btnEditNote {
+            border-radius: 6px;
+            background-color: transparent;
+            color: rgba(212, 211, 209, 0.7);
+            transition: 0.6s;
+            border: none;
+            font-family: monospace;
+            /* display: flex;  */
+        }
+
+        .btnEditNote:hover,
+        .btnEditNote:focus {
+            background-color: rgb(194, 192, 190, 0.4);
+            color: rgb(14, 13, 13);
+            cursor: pointer;
+            outline: none;
+        }
+
+        .noteDeleteEdit {
+            display: flex;
+            justify-content: center;
+            margin-top: 13px;
+
+        }
+
+        .modal {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.9;
+            width: 100%;
+            overflow: auto;
+            background-color: black;
+        }
+
+        /* .modal body{
+            /* Add the blur effect 
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+        } */
+
+        /* Modal Content */
+        .modalcontent {
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            ;
+            margin: auto;
+            padding: 20px;
+            border: 1.5px solid rgba(218, 215, 215, 0.8);
+            width: 400px;
+            height: 300px;
+            border-radius: 10px;
+            /* background:linear-gradient(to right, rgb(250, 216, 22,0.4),rgb(243, 40, 141,0.4)); */
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Open Modal Animation */
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.6s;
+            animation-name: animatetop;
+            animation-duration: 0.6s;
+
+        }
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        /* .Note-Description:hover{
+              overflow: visible;
+          } */
+        .modal-title {
+            border-radius: 6px;
+            width: 400px;
+            height: 50px;
+            border: none;
+            background-color: rgba(136, 131, 131, 0.8);
+            color: #d6d5d5;
+            padding: 10px 10px;
+            font-size: 25px;
+        }
+
+        .modal-description {
+            border-radius: 6px;
+            color: #d6d5d5;
+            width: 400px;
+            height: 190px;
+            border: none;
+            background-color: rgba(136, 131, 131, 0.8);
+            /* overflow: auto;
+            word-wrap: break-word; */
+            padding: 10px 10px 150px;
+            font-size: 25px;
+            word-wrap: break-word;
+        }
+
+        .modal-description:focus,
+        .modal-title:focus {
+            outline: none;
+            border: 2px solid rgb(114, 119, 106);
+
+        }
+
+        .modal-close {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: 2.5px;
+            top: 2.5px;
+            width: 15px;
+            height: 15px;
+            /* border-radius: 20px; */
+            transition: 0.8s;
+            color: rosybrown;
+        }
+
+        .modal-close {
+            float: right;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            outline: none;
+            cursor: pointer;
+            /* background-color: rgb(194, 192, 190,0.4); */
+
+        }
+
+        .modal-btnDone {
+            margin: auto;
+            display: flex;
+
+            width: 150px;
+            height: 30px;
+            background-color: transparent;
+            justify-content: center;
+            align-items: center;
+            color: rgba(212, 211, 209, 0.7);
+            font-family: "Lucida Console", Courier, monospace;
+            font-size: x-large;
+            transition: 0.8s;
+
+            border: none;
+            border-radius: 8px;
+        }
+
+        .modal-btnDone:hover,
+        .modal-btnDone:focus {
+            background-color: rgb(194, 192, 190, 0.4);
+            color: rgb(14, 13, 13);
+            cursor: pointer;
+            outline: none;
+        }
+
+        .btnNewNote {
+            position: fixed;
+            width: 190px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            border: none;
+            background-color: rgba(228, 180, 200, 0.6);
+            color: #6f20ab;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            transition: 0.6s;
+
+        }
+
+        .btnNewNote:hover,
+        .btnNewNote:focus {
+            cursor: pointer;
+            outline: none;
+            background-color: rgb(194, 192, 190, 0.4);
+            color: rgb(14, 13, 13);
+        }
+
+        ::placeholder {
+            color: rgb(14, 13, 13, 0.8);
+        }
+
+        .fa-pen-fancy {
+            font-size: 23px;
+        }
+
+        /* #########SCROLLBAR####### */
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+            border-radius: 8px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background-color: #aaa;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #444;
+        }
+
+        /* #########SCROLLBAR---END####### */
+    </style>
+</head>
+
+
+<body>
+    <div id="d1"></div>
+    <button class="btnNewNote" onclick="inputNewNote()"><i class="fas fa-pen-fancy"></i> New Note</button>
+    <script type="text/javascript" src="function.js"></script>
+
+    <!-- //The MODAL design..... -->
+    <div id="dm" class="modal">
+        <div class="modalcontent">
+            <span id="sm" class="modal-close">
+                <i id="smi1" class="fas fa-times" onclick="closeModal()"></i>
+            </span>
+            <input class="modal-title" type="text" name="modaltitle" id="im1" placeholder="Title..."
+                maxlength="16"><br><br>
+            <input class="modal-description" type="text" name="modaldescription" id="im2"
+                placeholder="Description..."><br><br>
+            <button class="modal-btnDone" onclick="createNote()"><i class="fas fa-edit"></i> Create</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

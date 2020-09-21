@@ -14,9 +14,8 @@
 
 ### Notes:
 
-## This project is made using Java Script,HTML,CSS. Used Local storage to store data. Design is Responsive.
+This project is made using Java Script,HTML,CSS. Used Local storage to store data. Design is Responsive.
 
 ### Check Output in browser
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Download & save the code in your machine. Open the html file in any browser to see the result

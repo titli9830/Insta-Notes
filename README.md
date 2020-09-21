@@ -16,6 +16,10 @@
 
 This project is made using Java Script,HTML,CSS. Used Local storage to store data. Design is Responsive.
 
-### Check Output in browser
+### Output
+
+Check here: [https://titli9830.github.io/Insta-Notes/](https://titli9830.github.io/Insta-Notes/)<br/>
+
+OR
 
 Download & save the code in your machine. Open the html file in any browser to see the result

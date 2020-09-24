@@ -144,6 +144,10 @@ function inputNewNote() {
 
 //Click on close button to close the MODAL(Input Box)
 function closeModal() {
+  //clear input box
+  getElement("im1").value = "";
+  getElement("im2").value = "";
+  //close modal
   getElement("dm").style.display = "none";
 
 }

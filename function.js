@@ -46,7 +46,7 @@ function getNoteTitleHtmlString(title) {
 }
 
 function getNoteDescHtmlString(desc) {
-  return "<div class='Note-Description' contenteditable>" + desc + "</div>";
+  return "<textarea class='Note-Description' contenteditable>" + desc + "</textarea>";
 }
 
 function deleteNoteHtmlString(index) {

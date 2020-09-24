@@ -1,8 +1,8 @@
 ## Project Screenshots
 
-### Mobile View:
+### Mobile View:                                  
 
-<img src="screenshots/Mobile2.PNG" height="350">  <img src="screenshots/Mobile modal.PNG" height="350">
+<img src="screenshots/Mobile2.PNG" height="350">          <img src="screenshots/Mobile modal.PNG" height="350">
 
 ### Tablet View:
 
@@ -10,7 +10,7 @@
 
 ### Desktop View:
 
-<img src="screenshots/Desktop2.PNG" width="300">  <img src="screenshots/Desktop Modal.PNG" width="300">
+<img src="screenshots/Desktop2.PNG" width="300">          <img src="screenshots/Desktop Modal.PNG" width="300">
 
 ### Notes:
 
